@@ -32,11 +32,11 @@ public class AndroidAudioRecorder {
     private boolean autoStart = false;
     private boolean keepDisplayOn = false;
 
-    private AndroidAudioRecorder(Activity activity) {
+    protected AndroidAudioRecorder(Activity activity) {
         this.activity = activity;
     }
 
-    private AndroidAudioRecorder(Fragment fragment) {
+    protected AndroidAudioRecorder(Fragment fragment) {
         this.fragment = fragment;
     }
 
