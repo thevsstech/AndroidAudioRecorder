@@ -55,9 +55,9 @@ public class AudioRecorderActivity extends AppCompatActivity
     private GLAudioVisualizationView visualizerView;
     private TextView statusView;
     private TextView timerView;
-    private ImageButton restartView;
-    private ImageButton recordView;
-    private ImageButton playView;
+    protected ImageButton restartView;
+    protected ImageButton recordView;
+    protected ImageButton playView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
