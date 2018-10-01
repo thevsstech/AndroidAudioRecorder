@@ -263,7 +263,7 @@ public class AudioRecorderActivity extends AppCompatActivity
         playerSecondsElapsed = 0;
     }
 
-    private void resumeRecording() {
+    protected void resumeRecording() {
         isRecording = true;
         saveMenuItem.setVisible(false);
         statusView.setText(R.string.aar_recording);
@@ -288,7 +288,7 @@ public class AudioRecorderActivity extends AppCompatActivity
         startTimer();
     }
 
-    private void pauseRecording() {
+    protected void pauseRecording() {
         isRecording = false;
         if(!isFinishing()) {
             saveMenuItem.setVisible(true);
@@ -312,7 +312,7 @@ public class AudioRecorderActivity extends AppCompatActivity
         stopTimer();
     }
 
-    private void stopRecording(){
+    protected void stopRecording(){
         visualizerView.release();
         if(visualizerHandler != null) {
             visualizerHandler.stop();
@@ -327,7 +327,7 @@ public class AudioRecorderActivity extends AppCompatActivity
         stopTimer();
     }
 
-    private void startPlaying(){
+    protected void startPlaying(){
         try {
             stopRecording();
             player = new MediaPlayer();
@@ -355,7 +355,7 @@ public class AudioRecorderActivity extends AppCompatActivity
         }
     }
 
-    private void stopPlaying(){
+    protected void stopPlaying(){
         statusView.setText("");
         statusView.setVisibility(View.INVISIBLE);
         playView.setImageResource(R.drawable.aar_ic_play);
