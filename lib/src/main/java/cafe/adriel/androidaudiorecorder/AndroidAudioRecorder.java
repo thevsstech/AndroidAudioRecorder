@@ -20,8 +20,8 @@ public class AndroidAudioRecorder {
     protected static final String EXTRA_AUTO_START = "autoStart";
     protected static final String EXTRA_KEEP_DISPLAY_ON = "keepDisplayOn";
 
-    private Activity activity;
-    private Fragment fragment;
+    protected Activity activity;
+    protected Fragment fragment;
 
     private String filePath = Environment.getExternalStorageDirectory() + "/recorded_audio.wav";
     private AudioSource source = AudioSource.MIC;
