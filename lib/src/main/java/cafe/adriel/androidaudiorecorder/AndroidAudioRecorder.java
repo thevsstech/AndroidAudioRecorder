@@ -23,7 +23,7 @@ public class AndroidAudioRecorder {
     protected Activity activity;
     protected Fragment fragment;
 
-    private String filePath = Environment.getExternalStorageDirectory() + "/recorded_audio.wav";
+    protected String filePath = Environment.getExternalStorageDirectory() + "/recorded_audio.wav";
     protected AudioSource source = AudioSource.MIC;
     protected AudioChannel channel = AudioChannel.STEREO;
     protected AudioSampleRate sampleRate = AudioSampleRate.HZ_44100;
