@@ -55,9 +55,9 @@ public class AudioRecorderActivity extends AppCompatActivity
     private GLAudioVisualizationView visualizerView;
     private TextView statusView;
     private TextView timerView;
-    protected ImageButton restartView;
-    protected ImageButton recordView;
-    protected ImageButton playView;
+    private ImageButton restartView;
+    private ImageButton recordView;
+    private ImageButton playView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -263,7 +263,7 @@ public class AudioRecorderActivity extends AppCompatActivity
         playerSecondsElapsed = 0;
     }
 
-    protected void resumeRecording() {
+    private void resumeRecording() {
         isRecording = true;
         saveMenuItem.setVisible(false);
         statusView.setText(R.string.aar_recording);
@@ -277,16 +277,18 @@ public class AudioRecorderActivity extends AppCompatActivity
         visualizerView.linkTo(visualizerHandler);
 
         if(recorder == null) {
-                timerView.setText("00:00:00");
-                recorder = OmRecorder.wav(new PullTransport.Default(Util.getMic(source, channel, sampleRate), AudioRecorderActivity.this),new File(filePath));
-        }
+            timerView.setText("00:00:00");
 
+            recorder = OmRecorder.wav(
+                    new PullTransport.Default(Util.getMic(source, channel, sampleRate), AudioRecorderActivity.this),
+                    new File(filePath));
+        }
         recorder.resumeRecording();
 
         startTimer();
     }
 
-    protected void pauseRecording() {
+    private void pauseRecording() {
         isRecording = false;
         if(!isFinishing()) {
             saveMenuItem.setVisible(true);
@@ -310,7 +312,7 @@ public class AudioRecorderActivity extends AppCompatActivity
         stopTimer();
     }
 
-    protected void stopRecording(){
+    private void stopRecording(){
         visualizerView.release();
         if(visualizerHandler != null) {
             visualizerHandler.stop();
@@ -318,16 +320,14 @@ public class AudioRecorderActivity extends AppCompatActivity
 
         recorderSecondsElapsed = 0;
         if (recorder != null) {
-            try { recorder.stopRecording(); }
-            catch (Exception e) { }
-
+            recorder.stopRecording();
             recorder = null;
         }
 
         stopTimer();
     }
 
-    protected void startPlaying(){
+    private void startPlaying(){
         try {
             stopRecording();
             player = new MediaPlayer();
@@ -355,7 +355,7 @@ public class AudioRecorderActivity extends AppCompatActivity
         }
     }
 
-    protected void stopPlaying(){
+    private void stopPlaying(){
         statusView.setText("");
         statusView.setVisibility(View.INVISIBLE);
         playView.setImageResource(R.drawable.aar_ic_play);
