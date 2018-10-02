@@ -318,7 +318,9 @@ public class AudioRecorderActivity extends AppCompatActivity
 
         recorderSecondsElapsed = 0;
         if (recorder != null) {
-            recorder.stopRecording();
+            try { recorder.stopRecording(); }
+            catch (Exception e) { }
+
             recorder = null;
         }
 
