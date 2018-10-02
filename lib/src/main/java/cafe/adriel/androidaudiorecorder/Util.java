@@ -19,14 +19,17 @@ public class Util {
         HANDLER.postDelayed(callback, millis);
     }
 
-    public static omrecorder.AudioSource getMic(AudioSource source,
-                                                AudioChannel channel,
-                                                AudioSampleRate sampleRate) {
-        return new omrecorder.AudioSource.Smart(
-                source.getSource(),
-                AudioFormat.ENCODING_PCM_16BIT,
-                channel.getChannel(),
-                sampleRate.getSampleRate());
+    public static PullableSource getMic(AudioSource source, AudioChannel channel, AudioSampleRate sampleRate) {
+        // return new omrecorder.AudioSource.Smart(
+        // source.getSource(),
+        // AudioFormat.ENCODING_PCM_16BIT,
+        // channel.getChannel(),
+        // sampleRate.getSampleRate());
+        return new PullableSource.Default(
+            new AudioRecordConfig.Default(
+            source.getSource(), AudioFormat.ENCODING_PCM_16BIT,
+            channel.getChannel(), sampleRate.getSampleRate())
+        );
     }
 
     public static boolean isBrightColor(int color) {
