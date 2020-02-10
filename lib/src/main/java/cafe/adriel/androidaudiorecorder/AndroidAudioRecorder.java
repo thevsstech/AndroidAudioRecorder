@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Environment;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import cafe.adriel.androidaudiorecorder.model.AudioChannel;
 import cafe.adriel.androidaudiorecorder.model.AudioSampleRate;
@@ -20,23 +20,23 @@ public class AndroidAudioRecorder {
     protected static final String EXTRA_AUTO_START = "autoStart";
     protected static final String EXTRA_KEEP_DISPLAY_ON = "keepDisplayOn";
 
-    private Activity activity;
-    private Fragment fragment;
+    protected Activity activity;
+    protected Fragment fragment;
 
-    private String filePath = Environment.getExternalStorageDirectory() + "/recorded_audio.wav";
-    private AudioSource source = AudioSource.MIC;
-    private AudioChannel channel = AudioChannel.STEREO;
-    private AudioSampleRate sampleRate = AudioSampleRate.HZ_44100;
-    private int color = Color.parseColor("#546E7A");
-    private int requestCode = 0;
-    private boolean autoStart = false;
-    private boolean keepDisplayOn = false;
+    protected String filePath = Environment.getExternalStorageDirectory() + "/recorded_audio.wav";
+    protected AudioSource source = AudioSource.MIC;
+    protected AudioChannel channel = AudioChannel.STEREO;
+    protected AudioSampleRate sampleRate = AudioSampleRate.HZ_44100;
+    protected int color = Color.parseColor("#546E7A");
+    protected int requestCode = 0;
+    protected boolean autoStart = false;
+    protected boolean keepDisplayOn = false;
 
-    private AndroidAudioRecorder(Activity activity) {
+    protected AndroidAudioRecorder(Activity activity) {
         this.activity = activity;
     }
 
-    private AndroidAudioRecorder(Fragment fragment) {
+    protected AndroidAudioRecorder(Fragment fragment) {
         this.fragment = fragment;
     }
 
