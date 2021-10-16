@@ -7,7 +7,6 @@
 ![Screenshots](https://raw.githubusercontent.com/adrielcafe/AndroidAudioRecorder/master/demo.gif)
 
 ![Screenshots](https://raw.githubusercontent.com/adrielcafe/AndroidAudioRecorder/master/screenshots.png)
-
 ## How To Use
 
 1 - Add these permissions into your `AndroidManifest.xml` and [request for them in Android 6.0+](https://developer.android.com/training/permissions/requesting.html)
